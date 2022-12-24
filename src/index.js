@@ -11,7 +11,7 @@ const refs = {
     countryInfo: document.querySelector ('.country-info'),
 };
 
-refs.input.addEventListener ('input', debounce (onSearchCountry, DEBOUNCE_DELAY));
+refs.input.addEventListener('input', debounce(onSearchCountry, DEBOUNCE_DELAY));
 
 function onSearchCountry (evt) {
     const valueInput = evt.target.value.trim ();
