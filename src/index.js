@@ -1,6 +1,6 @@
 import './css/styles.css';
 import { fetchCountries } from '../src/fetchCountries';
-import { debounce } from 'lodash.debounce';
+import debounce from 'lodash.debounce';
 import Notiflix from 'notiflix';
 
 const DEBOUNCE_DELAY = 300;
@@ -13,12 +13,13 @@ const refs = {
 
 refs.input.addEventListener('input', debounce(onSearchCountry, DEBOUNCE_DELAY));
 
-function onSearchCountry (evt) {
-    const valueInput = evt.target.value.trim ();
+function onSearchCountry(e) {
+
+    const valueInput = e.target.value.trim ();
     if (valueInput.length === 0) {
         refs.countryList.innerHTML = '';
         refs.countryInfo.innerHTML = '';
-        refs.input.removeEventListener ('input', evt);
+        refs.input.removeEventListener ('input', e);
         return;
     }
 
@@ -65,5 +66,4 @@ function onSearchCountry (evt) {
     }
  }
  
-
-}
+};
